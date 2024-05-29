@@ -9,7 +9,6 @@ const reactionEmoji = {
   coffee: "☕",
 };
 
-
 // eslint-disable-next-line react/prop-types
 function ReactionButton({ post }) {
   const dispatch = useDispatch();
@@ -19,12 +18,13 @@ function ReactionButton({ post }) {
         key={name}
         type="button"
         className="reactionButton"
-        onClick={() =>
+        onClick={() => {
           // eslint-disable-next-line react/prop-types
-          dispatch(reactionAdded({ postId: post.id, reaction: name }))
-        }
+          console.log({ postId: post.id, reaction: name });
+          // eslint-disable-next-line react/prop-types
+          dispatch(reactionAdded({ postId: post.id, reaction: name }));
+        }}
       >
-        
         {/* eslint-disable-next-line react/prop-types */}
         {emoji} {post.reactions[name]}
       </button>
